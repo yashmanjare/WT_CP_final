@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Plants</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Plant Nursery</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+    </nav>
+
+    <!-- Browse Section -->
+    <section class="container">
+        <h2 id="browse-title">Browse {{ category|capfirst }}</h2>
+        <div id="browse-grid" class="plant-grid">
+            {% for plant in plants %}
+                <div class="plant-card">
+                    <img src="{% static plant.image %}" alt="{{ plant.name }}">
+                    <h3>{{ plant.name }}</h3>
+                    <p>{{ plant.description }}</p>
+                    <a href="{% url 'plant_details' plant.name|slugify %}" class="btn">View Details</a>  
+                </div>
+            {% empty %}
+                <p>No plants available in this category.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+</body>
+</html>
+

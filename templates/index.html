@@ -1,0 +1,143 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Nursery</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'img/Logo (2).jpg' %}" alt="Logo" style="height: 50px; width: auto; vertical-align: middle;">
+            Plant Nursery Web</div>
+            <a href="" class="logo">Hello, {{user.name}} !!</a>
+        <div class="nav-links">
+            <a href="#" onclick="scrollToFooter()">Contact</a>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Image Section -->
+    <header class="hero">
+        <img src="{% static 'img/Hero-Plant.jpg' %}" alt="Beautiful plants" class="hero-image">
+        <div class="hero-text">
+            <h1>Welcome to Our Plant Nursery</h1>
+            <p>Your one-stop destination for beautiful plants and gardening essentials.</p>
+        </div>
+    </header>
+
+
+    <!-- Categories Section -->
+    <section id="categories" class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="{% static 'img/Flowers.jpg' %}" alt="Flowers">
+                <h3>Flowers</h3>
+                <p>Beautiful flowers to brighten your day.</p>
+                <a href="{% url 'browse' %}?category=flowers" target="_blank" class="btn">Browse</a>
+            </div>
+            <div class="category-card">
+                <img src="{% static 'img/Plants.jpg' %}" alt="Succulents">
+                <h3>Succulents</h3>
+                <p>Low-maintenance plants for any space.</p>
+                <a href="{% url 'browse' %}?category=succulents" target="_blank" class="btn">Browse</a>
+            </div>
+            <div class="category-card">
+                <img src="{% static 'img/Herbs.jpg' %}" alt="Herbs">
+                <h3>Herbs</h3>
+                <p>Grow your own herbs for cooking.</p>
+                <a href="{% url 'browse' %}?category=herbs" target="_blank" class="btn">Browse</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Plants Section -->
+    <section id="plants-section" class="container">
+        <h2 class="section-title">Featured Plants</h2>
+        <div class="plant-grid">
+            <div class="plant-card">
+                <img src="{% static 'img/Rose.jpg' %}" alt="Rose">
+                <h3>Rose</h3>
+                <p>Beautiful red rose</p>
+                <a href="{% url 'plant_details' 'rose' %}" class="btn">View Details</a>
+            </div>
+            <div class="plant-card">
+                <img src="{% static 'img/Lavender.jpg' %}" alt="Lavender">
+                <h3>Lavender</h3>
+                <p>Calming lavender plant</p>
+                <a href="{% url 'plant_details' 'lavender' %}" class="btn">View Details</a>
+            </div>
+            <div class="plant-card">
+                <img src="{% static 'img/Aloe Vera.jpg' %}" alt="Aloe Vera">
+                <h3>Aloe Vera</h3>
+                <p>Healing aloe vera</p>
+                <a href="{% url 'plant_details' 'aloe-vera' %}" class="btn">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Plants Section -->
+    <section id="trending" class="container">
+        <h2 class="section-title">Trending Plants</h2>
+        <div class="plant-grid">
+            <div class="plant-card">
+                <img src="{% static 'img/Snake Plant.jpg' %}" alt="Snake Plant">
+                <h3>Snake Plant</h3>
+                <p>Low light, low maintenance plant</p>
+                <a  href="{% url 'plant_details' 'snake-plant' %}" class="btn">View Details</a>
+            </div>
+            <div class="plant-card">
+                <img src="{% static 'img/Fiddle Leaf Fig.jpg'%}" alt="Fiddle Leaf Fig">
+                <h3>Fiddle Leaf Fig</h3>
+                <p>Popular indoor plant with large leaves</p>
+                <a  href="{% url 'plant_details' 'fiddle-leaf' %}" class="btn">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Selling Plants Section -->
+    <section id="best-selling" class="container">
+        <h2 class="section-title">Best Selling Plants</h2>
+        <div class="plant-grid">
+            <div class="plant-card">
+                <img src="{% static 'img/Pothos.jpg' %}" alt="Pothos">
+                <h3>Pothos</h3>
+                <p>Easy care trailing plant</p>
+                <a  href="{% url 'plant_details' 'pothos' %}" class="btn">View Details</a>
+            </div>
+            <div class="plant-card">
+                <img src="{% static 'img/Philodendron.jpg' %}" alt="Philodendron">
+                <h3>Philodendron</h3>
+                <p>Heart-shaped leaves, easy to grow</p>
+                <a  href="{% url 'plant_details' 'philodendron' %}" class="btn">View Details</a>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- Footer Contact Section -->
+    <footer id="footer">
+        <h4>Contact Us</h4>
+        <p>Email: info@plantnursery.com | Phone: 123-456-7890</p>
+        <div class="social-media">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Scroll to Footer -->
+    <script>
+        function scrollToFooter() {
+            document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
